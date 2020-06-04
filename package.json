@@ -1,0 +1,72 @@
+{
+    "name": "aws-lambda-golang",
+    "version": "0.0.1",
+    "description": "CDK Construct for AWS Lambda in Golang",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "build": "cdk-build",
+        "watch": "cdk-watch",
+        "lint": "cdk-lint",
+        "test": "cdk-test",
+        "integ": "cdk-integ",
+        "pkglint": "pkglint -f",
+        "package": "cdk-package",
+        "awslint": "cdk-awslint",
+        "cfn2ts": "cfn2ts",
+        "build+test+package": "npm run build+test && npm run package",
+        "build+test": "npm run build && npm test",
+        "compat": "cdk-compat"
+    },
+    "keywords": [
+        "aws",
+        "cdk",
+        "constructs",
+        "lambda"
+    ],
+    "author": {
+        "name": "Rafal Wilinski",
+        "url": "https://rwilinski.me"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 60,
+                "statements": 80
+            }
+        },
+        "collectCoverage": true,
+        "coverageReporters": [
+            "lcov",
+            "html",
+            "text-summary"
+        ]
+    },
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@aws-cdk/assert": "^1.43.0",
+        "@types/node": "^14.0.10",
+        "fs-extra": "^8.1.0"
+    },
+    "dependencies": {
+        "@aws-cdk/aws-lambda": "^1.43.0",
+        "@aws-cdk/core": "^1.43.0",
+        "constructs": "^2.0.0"
+    },
+    "homepage": "https://github.com/aws/aws-cdk",
+    "peerDependencies": {
+        "@aws-cdk/aws-lambda": "^1.43.0",
+        "@aws-cdk/core": "^1.43.0",
+        "constructs": "^2.0.0"
+    },
+    "engines": {
+        "node": ">= 10.3.0"
+    },
+    "stability": "experimental",
+    "awscdkio": {
+        "announce": false
+    }
+}
