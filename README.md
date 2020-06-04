@@ -34,11 +34,25 @@ In Java using Maven:
 In Typescript:
 
 ```ts
-import * as golang from 'aws-lambda-golang';
+import * as golang from 'aws-lambda-golang'; // Import aws-lambda-golang module
+import * as cdk from '@aws-cdk/core';
+import * as apigateway from '@aws-cdk/aws-apigateway';
 
-...
+export class TestStackStack extends cdk.Stack {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
 
-new golang.GolangFunction(this, 'my-handler');
+    // Define function. Source code should be located in ./test-function/main.go
+    const backend = new golang.GolangFunction(this, 'test-function');
+    const api = new apigateway.LambdaRestApi(this, 'myapi', {
+      handler: backend,
+      proxy: false,
+    });
+
+    const items = api.root.addResource('items');
+    items.addMethod('GET');
+  }
+}
 ```
 
 By default, the construct will use the name of the defining file and the construct's id to look
@@ -56,5 +70,9 @@ up the entry file:
 The `GolangFunction` construct exposes some options via properties: `buildCmd`, `buildDir`, `entry` and `handler`, `extraEnv`.
 
 By default, your Golang code is compiled using `go build -ldflags="-s -w"` command with `GOOS=linux` env variable.
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/RafalWilinski/aws-lambda-golang-cdk/issues).
 
 Project sponsored by [Dynobase](https://dynobase.dev)
