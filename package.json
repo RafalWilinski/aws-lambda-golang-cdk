@@ -87,6 +87,7 @@
     },
     "stability": "experimental",
     "awscdkio": {
-        "announce": false
+        "announce": true,
+        "twitter": "@RafalWilinski"
     }
 }
