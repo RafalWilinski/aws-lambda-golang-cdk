@@ -1,6 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 import * as apigateway from '@aws-cdk/aws-apigateway';
-import * as golang from '../../lib/index';
+import * as golang from 'aws-lambda-golang';
 export class TestStackStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);

@@ -22,7 +22,7 @@ export interface GolangFunctionProps extends lambda.FunctionOptions {
   /**
    * The name of the exported handler in the entry file.
    *
-   * @default handler
+   * @default main
    */
   readonly handler?: string;
 
@@ -32,6 +32,20 @@ export interface GolangFunctionProps extends lambda.FunctionOptions {
    * @default - `.build` in the entry file directory
    */
   readonly buildDir?: string;
+
+  /**
+   * The build command
+   *
+   * @default - `go build -ldflags="-s -w"`
+   */
+  readonly buildCmd?: string;
+
+  /**
+   * Additional environment variables
+   *
+   * @default - `{ GOOS: 'linux' }`
+   */
+  readonly extraEnv?: any;
 }
 
 /**
@@ -41,6 +55,7 @@ export class GolangFunction extends lambda.Function {
   constructor(scope: cdk.Construct, id: string, props: GolangFunctionProps = {}) {
     const entry = findEntry(id, props.entry);
     const handler = props.handler || 'main';
+    const buildCmd = props.buildCmd || 'go build -ldflags="-s -w"';
     const buildDir = props.buildDir || path.join(path.dirname(entry), '.build');
     const handlerDir = path.join(buildDir, crypto.createHash('sha256').update(entry).digest('hex'));
     const runtime = lambda.Runtime.GO_1_X;
@@ -50,6 +65,8 @@ export class GolangFunction extends lambda.Function {
       entry,
       outDir: handlerDir,
       handler,
+      buildCmd,
+      extraEnv: props.extraEnv || {},
     });
     builder.build();
 
@@ -79,7 +96,6 @@ function findEntry(id: string, entry?: string): string {
   }
 
   const definingFile = findDefiningFile();
-  const extname = path.extname(definingFile);
   const libDir = path.join(definingFile, '..');
   const goHandlerFile = path.join(libDir, `/${id}/main.go`);
 

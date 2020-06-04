@@ -23,6 +23,7 @@
   "dependencies": {
     "@aws-cdk/aws-apigateway": "^1.43.0",
     "@aws-cdk/core": "1.43.0",
+    "aws-lambda-golang": "0.0.2",
     "source-map-support": "^0.5.16"
   }
 }
