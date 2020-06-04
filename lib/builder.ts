@@ -54,13 +54,21 @@ export class Builder {
       const cmd = `${this.buildCmd} -o ${this.outDir}/${this.handler} ${this.entry}`;
       const cwd = path.dirname(this.entry);
 
-      spawnSync(cmd, {
+      const goBuild = spawnSync(cmd, {
         env: { ...process.env, GOOS: 'linux', ...this.extraEnv },
         shell: true,
         cwd,
       });
+
+      if (goBuild.error) {
+        throw goBuild.error;
+      }
+
+      if (goBuild.status !== 0) {
+        throw new Error(goBuild.stdout.toString().trim());
+      }
     } catch (err) {
-    } finally {
+      throw new Error(`Failed to compile Go function at ${this.entry}: ${err}`);
     }
   }
 }
