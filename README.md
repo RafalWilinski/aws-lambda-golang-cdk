@@ -4,11 +4,24 @@
 
 This library provides constructs for Golang (Go 1.11 and 1.12 because of go modules) Lambda functions.
 
-### Golang Function
-Define a `GolangFunction`:
+### Installing
+In Typescript:
+
+```sh
+npm i aws-lambda-golang --save
+# or using yarn
+yarn add aws-lambda-golang
+```
+
+### Usage
+In Typescript:
 
 ```ts
-new lambda.GolangFunction(this, 'my-handler');
+import * as golang from 'aws-lambda-golang';
+
+...
+
+new golang.GolangFunction(this, 'my-handler');
 ```
 
 By default, the construct will use the name of the defining file and the construct's id to look
