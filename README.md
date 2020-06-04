@@ -1,4 +1,7 @@
+[![GitHub version](https://badge.fury.io/gh/RafalWilinski%2Faws-lambda-golang-cdk.svg)](https://badge.fury.io/gh/RafalWilinski%2Faws-lambda-golang-cdk)
 [![npm version](https://badge.fury.io/js/aws-lambda-golang.svg)](https://badge.fury.io/js/aws-lambda-golang)
+[![NuGet version](https://badge.fury.io/nu/rwilinski.GolangFunction.svg)](https://badge.fury.io/nu/rwilinski.GolangFunction)
+[![PyPI version](https://badge.fury.io/py/rwilinski.aws-lambda-golang.svg)](https://badge.fury.io/py/rwilinski.aws-lambda-golang)
 
 ## Amazon Lambda Golang Construct
 
@@ -11,6 +14,20 @@ In Typescript:
 npm i aws-lambda-golang --save
 # or using yarn
 yarn add aws-lambda-golang
+```
+
+In .NET:
+```sh
+dotnet add package rwilinski.GolangFunction --version 0.1.0
+```
+
+In Python using Pip:
+```sh
+pip install rwilinski.aws-lambda-golang
+```
+
+In Java using Maven:
+```sh
 ```
 
 ### Usage
