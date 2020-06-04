@@ -6,6 +6,7 @@ coverage
 *.tgz
 
 dist
+example
 .LAST_PACKAGE
 .LAST_BUILD
 !*.js
