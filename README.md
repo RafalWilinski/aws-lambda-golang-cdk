@@ -26,8 +26,13 @@ In Python using Pip:
 pip install rwilinski.aws-lambda-golang
 ```
 
-In Java using Maven:
-```sh
+In Java using Maven, add this to `pom.xml`:
+```xml
+<dependency>
+  <groupId>com.rwilinski</groupId>
+  <artifactId>aws-lambda-golang</artifactId>
+  <version>0.1.1</version>
+</dependency>
 ```
 
 ### Usage
