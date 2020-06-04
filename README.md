@@ -16,11 +16,3 @@ up the entry file:
 ├── stack.ts # defines a 'GolangFunction' with 'my-handler' as id
 ├── stack/my-handler/main.go 
 ```
-
-Alternatively, an entry file and handler can be specified:
-```ts
-new lambda.NodejsFunction(this, 'MyFunction', {
-  entry: '/path/to/my/file.go'
-  handler: 'myExportedFunc'
-});
-```
