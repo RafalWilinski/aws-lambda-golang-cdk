@@ -18,17 +18,17 @@ export interface BuilderOptions {
   /**
    * The output directory
    */
-  readonly buildCmd?: string;
+  readonly buildCmd: string;
 
   /**
    * The handler name, also name of compiled file, defaults to `main`
    */
-  readonly handler?: string;
+  readonly handler: string;
 
   /**
    * Additional env variables
    */
-  readonly extraEnv?: string;
+  readonly extraEnv: string;
 }
 
 /**
@@ -41,7 +41,7 @@ export class Builder {
   private readonly handler: string;
   private readonly extraEnv: any;
 
-  constructor(private readonly options: BuilderOptions) {
+  constructor(options: BuilderOptions) {
     this.entry = options.entry;
     this.outDir = options.outDir;
     this.buildCmd = options.buildCmd;

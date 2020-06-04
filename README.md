@@ -26,3 +26,5 @@ up the entry file:
 The `GolangFunction` construct exposes some options via properties: `buildCmd`, `buildDir`, `entry` and `handler`, `extraEnv`.
 
 By default, your Golang code is compiled using `go build -ldflags="-s -w"` command with `GOOS=linux` env variable.
+
+Project sponsored by [Dynobase](https://dynobase.dev)
