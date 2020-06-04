@@ -2,7 +2,7 @@
 
 ## Amazon Lambda Golang Construct
 
-This library provides constructs for Golang Lambda functions.
+This library provides constructs for Golang (Go 1.11 and 1.12 because of go modules) Lambda functions.
 
 ### Golang Function
 Define a `GolangFunction`:
@@ -17,6 +17,8 @@ up the entry file:
 .
 ├── stack.ts # defines a 'GolangFunction' with 'my-handler' as id
 ├── stack/my-handler/main.go 
+├── stack/my-handler/go.mod 
+├── stack/my-handler/go.sum 
 ```
 
 ### Configuring build
