@@ -70,6 +70,32 @@ up the entry file:
 ├── stack/my-handler/go.sum 
 ```
 
+The simplest Golang function:
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
+)
+
+func handler(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	fmt.Println("Received body: ", req.Body)
+
+	return events.APIGatewayProxyResponse{
+        StatusCode: http.StatusOK,
+        Body:       "Hello from CDK GolangFunction!",
+    }, nil
+}
+
+func main() {
+	lambda.Start(handler)
+}
+```
+
 ### Configuring build
 
 The `GolangFunction` construct exposes some options via properties: `buildCmd`, `buildDir`, `entry` and `handler`, `extraEnv`.
