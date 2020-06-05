@@ -70,7 +70,7 @@ up the entry file:
 ├── stack/my-handler/go.sum 
 ```
 
-The simplest Golang function:
+The simplest Golang function (`stack/my-handler/main.go`): 
 
 ```go
 package main
