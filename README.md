@@ -7,6 +7,8 @@
 
 This library provides constructs for Golang (Go 1.11 and 1.12 because of go modules) Lambda functions.
 
+[Why? Read this blogpost](https://www.rwilinski.me/blog/golang-and-cdk/)
+
 ### Installing
 In Typescript:
 
