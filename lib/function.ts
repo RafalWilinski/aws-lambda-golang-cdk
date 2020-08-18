@@ -89,6 +89,9 @@ function findEntry(id: string, entry?: string): string {
     if (!/\.(go)$/.test(entry)) {
       throw new Error('Only Golang entry files are supported.');
     }
+
+    entry = path.join(process.cwd(), path.sep, entry)
+
     if (!fs.existsSync(entry)) {
       throw new Error(`Cannot find entry file at ${entry}`);
     }
